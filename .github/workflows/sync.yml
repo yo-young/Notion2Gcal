@@ -1,32 +1,11 @@
 name: Notion to Google Calendar Sync
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'  # 15분마다 실행
-  workflow_dispatch:        # GitHub 웹 UI에서 수동으로 실행 가능하게 만듦
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: 레포지토리 체크아웃
-      uses: actions/checkout@v4
-
-    - name: 파이썬 환경 설정
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-
-    - name: 의존성 패키지 설치
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: 동기화 스크립트 실행
-      env:
-        NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
-        GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
-        GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
-      run: python sync.py
+      - name: Hello World
+        run: echo "Hello, world!"
