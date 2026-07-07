@@ -47,9 +47,9 @@ NOTION_HEADERS = {
 }
 
 def get_recent_notion_pages():
-    """최근 16분 내에 수정된 노션 페이지 목록을 가져옵니다."""
+    """최근 180분 내에 수정된 노션 페이지 목록을 가져옵니다."""
     url = f"https://api.notion.com/v1/databases/{NOTION_DB_ID}/query"
-    time_limit = (datetime.utcnow() - timedelta(minutes=16)).isoformat() + "Z"
+    time_limit = (datetime.utcnow() - timedelta(minutes=180)).isoformat() + "Z"
     
     payload = {
         "filter": {
